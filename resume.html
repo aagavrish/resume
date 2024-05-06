@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="docs/misc/favicon.ico" type="image/x-icon">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            overflow-x: hidden;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        img {
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            width: 100vw;
+            height: 125vh;
+        }
+
+        .unsupported-format-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #414141;
+        }
+
+        .unsupported-format-message strong {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .unsupported-format-message span {
+            display: block;
+            font-size: 16px;
+            font-weight: normal;
+            margin-top: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="docs/misc/resume.svg" alt="Resume" id="image">
+    <div class="unsupported-format-message" id="unsupportedMessage">
+        <strong>Твое разрешение не поддерживается</strong>
+        <span>Для продолжения просмотра нужно увеличить окно браузера или уменьшить масштабирование в нем</span>
+    </div>
+
+    <script>
+        function checkWindowSize() {
+            const image = document.getElementById('image');
+            const message = document.getElementById('unsupportedMessage');
+            if (window.innerWidth < 595) {
+                image.style.display = 'none';
+                message.style.display = 'block';
+            } else {
+                image.style.display = 'block';
+                message.style.display = 'none';
+            }
+        }
+
+        window.onload = checkWindowSize;
+        window.onresize = checkWindowSize;
+    </script>
+</body>
+
+</html>
